@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerAnimControl : MonoBehaviour
 {
 
+    public List<Animator> Animators = new List<Animator>();
     public Animator BodyAnimtr;
     public Animator HairAnimtr;
+    public Animator EyesAnimtr;
     public Animator UpperAnimtr;
     public Animator LowerAnimtr;
     public Animator FeetAnimtr;
@@ -14,15 +16,12 @@ public class PlayerAnimControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Animator OriginBody = GameObject.FindWithTag(Tags.Body).GetComponent<Animator>();
-        // Animator OriginUpper = GameObject.FindWithTag(Tags.UpperClothes).GetComponent<Animator>();
-        // Animator OriginLower = GameObject.FindWithTag(Tags.LowerClothes).GetComponent<Animator>();
-        // Animator OriginFeet = GameObject.FindWithTag(Tags.FeetClothes).GetComponent<Animator>();
-
-        // AnimtrChange("Body", OriginBody);
-        // AnimtrChange("Upper", OriginUpper);
-        // AnimtrChange("Lower", OriginLower);
-        // AnimtrChange("Feet", OriginFeet);
+        Animators.Add(BodyAnimtr);
+        Animators.Add(HairAnimtr);
+        Animators.Add(EyesAnimtr);
+        Animators.Add(UpperAnimtr);
+        Animators.Add(LowerAnimtr);
+        Animators.Add(FeetAnimtr);
     }
 
     // Update is called once per frame
@@ -33,70 +32,44 @@ public class PlayerAnimControl : MonoBehaviour
 
 
     // Updates the reference of the Animator the entity Player uses to play the animations
-    // Requires the name of the Clothing the change has been made to and the new Animator from the new GameObject;
-    public void AnimtrChange(string part, Animator name) 
+    // Requires the GameObject of the new clothing
+    public void AnimtrChange(GameObject newClothing) 
     {
-
-        if(part == "Body")
-        {
-            BodyAnimtr = name;
-            return;
-        } 
-        if(part == "Upper") 
-        {
-            UpperAnimtr = name;
-            return;
-        }
-        if(part == "Lower")
-        {
-            LowerAnimtr = name;
-            return;
-        }
-        if(part == "Feet")
-        {
-            FeetAnimtr = name;
-            return;
-        }
         
+        if(newClothing.tag == Tags.UpperClothes)
+        {
+            UpperAnimtr = newClothing.GetComponent<Animator>();
+        }
+        else if (newClothing.tag == Tags.LowerClothes)
+        {
+            LowerAnimtr = newClothing.GetComponent<Animator>();
+        }
+        else if (newClothing.tag == Tags.FeetClothes)
+        {
+            FeetAnimtr = newClothing.GetComponent<Animator>();
+        }
+
+        Animators.Clear();
+
+        Animators.Add(BodyAnimtr);
+        Animators.Add(HairAnimtr);
+        Animators.Add(EyesAnimtr);
+        Animators.Add(UpperAnimtr);
+        Animators.Add(LowerAnimtr);
+        Animators.Add(FeetAnimtr);
         
     }
     
-    // Updates the Animation accordingly to the movement
+    // Updates the Animations of all parts and clothing accordingly to the movement
     public void SkinMovementAnimationUpdate()
     {
         Vector2 MovValue = GetComponent<PlayerMovement>().movement;
-
-        BodyAnimtr.SetFloat("Horizontal",MovValue.x);
-        BodyAnimtr.SetFloat("Vertical",MovValue.y);
-        BodyAnimtr.SetFloat("Speed", MovValue.magnitude);
-
-        if(HairAnimtr !=  null)
-        {
-            HairAnimtr.SetFloat("Horizontal",MovValue.x);
-            HairAnimtr.SetFloat("Vertical",MovValue.y);
-            HairAnimtr.SetFloat("Speed", MovValue.magnitude);
-        }
-
-        if(UpperAnimtr !=  null)
-        {
-            UpperAnimtr.SetFloat("Horizontal",MovValue.x);
-            UpperAnimtr.SetFloat("Vertical",MovValue.y);
-            UpperAnimtr.SetFloat("Speed", MovValue.magnitude);
-        }
-
-        if(LowerAnimtr !=  null)
-        {
-            LowerAnimtr.SetFloat("Horizontal",MovValue.x);
-            LowerAnimtr.SetFloat("Vertical",MovValue.y);
-            LowerAnimtr.SetFloat("Speed", MovValue.magnitude);
-        }
         
-        if(FeetAnimtr !=  null)
+        foreach (Animator animtr in Animators)
         {
-            FeetAnimtr.SetFloat("Horizontal",MovValue.x);
-            FeetAnimtr.SetFloat("Vertical",MovValue.y);
-            FeetAnimtr.SetFloat("Speed", MovValue.magnitude);
+            animtr.SetFloat("Horizontal",MovValue.x);
+            animtr.SetFloat("Vertical",MovValue.y);
+            animtr.SetFloat("Speed", MovValue.magnitude);
         }
-
     }
 }

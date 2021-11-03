@@ -1082,6 +1082,9 @@ TextureImporter:
   - first:
       213: 5968243275877832769
     second: pants_grey_359
+  - first:
+      213: 3535924205912325147
+    second: _ICON
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -8750,6 +8753,27 @@ TextureImporter:
       bones: []
       spriteID: 148dfc763a573d250800000000000000
       internalID: 5968243275877832769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ICON
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1405
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cfb16c450221130800000000000000
+      internalID: 3535924205912325147
       vertices: []
       indices: 
       edges: []

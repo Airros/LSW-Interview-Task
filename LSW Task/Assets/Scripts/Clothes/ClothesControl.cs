@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class ClothesControl : MonoBehaviour
 {
-    public Color SpriteColor;
+   public string Name;
+   public int Price;
+   public bool hasColorVariation;
+   public Color SpriteColor;
+   public Sprite Icon;
+   public string Tag;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       GetComponent<SpriteRenderer>().color = SpriteColor;  
-    }
+   void Start()
+   {
+      if(Price == 0) 
+      {
+         Price = 50;
+      }
 
-    // Update is called once per frame
-    void Update()
-    {
-       GetComponent<SpriteRenderer>().color = SpriteColor;
-    }
+      if(Icon == null)
+      {
+         Icon = GetComponent<SpriteRenderer>().sprite;
+      }  
+
+      transform.name = Name;
+
+      if(gameObject.GetComponent<SpriteRenderer>().color == new Color(0,0,0,0))
+      {
+         gameObject.GetComponent<SpriteRenderer>().color = SpriteColor;
+      }
+
+   }
+   
 }

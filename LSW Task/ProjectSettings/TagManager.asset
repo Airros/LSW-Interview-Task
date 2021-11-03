@@ -9,6 +9,7 @@ TagManager:
   - FeetClothes
   - HairStyle
   - Body
+  - Eyes
   layers:
   - Default
   - TransparentFX
@@ -49,9 +50,15 @@ TagManager:
   - name: Character
     uniqueID: 2586116885
     locked: 0
+  - name: Clothes
+    uniqueID: 3718455627
+    locked: 0
+  - name: Eyes
+    uniqueID: 1521983655
+    locked: 0
   - name: Hair
     uniqueID: 1847090277
     locked: 0
-  - name: Clothes
-    uniqueID: 3718455627
+  - name: UI
+    uniqueID: 3535622087
     locked: 0

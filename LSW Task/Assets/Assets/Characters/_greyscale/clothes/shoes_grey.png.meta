@@ -1082,6 +1082,9 @@ TextureImporter:
   - first:
       213: -3973330819153386240
     second: shoes_grey_359
+  - first:
+      213: 2755575154197397056
+    second: _ICON
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -8750,6 +8753,27 @@ TextureImporter:
       bones: []
       spriteID: 005204deba4ebd8c0800000000000000
       internalID: -3973330819153386240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _ICON
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1405
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ef3d9c005cd3620800000000000000
+      internalID: 2755575154197397056
       vertices: []
       indices: 
       edges: []
