@@ -11,11 +11,14 @@ public class Item : MonoBehaviour
     public Color itemColor;
     public GameObject icon;
     public Text PriceTagText;
+    public Image EquippedIcon;
+    public bool IsEquipped;
     public GameObject ConfirmationWindow;
-    public bool isItemOnShop = false;
+    public bool IsShopOpen = false;
     protected PlayerAnimControl AnimControlScript;
-
     protected StoreControl StoreControlScript;
+
+
    
     void Start()
     {
@@ -27,6 +30,11 @@ public class Item : MonoBehaviour
         UpdatePrice();
         SetStoreControlScript();
 
+    }
+
+    public void SetStoreControlScript()
+    {
+        StoreControlScript = GameObject.Find("StoreMain").GetComponent<StoreControl>();
     }
 
     public void UpdateIcon()
@@ -44,14 +52,9 @@ public class Item : MonoBehaviour
         PriceTagText.text = "$ " + price.ToString();
     }
 
-    public void SetStoreControlScript()
+    public void UpdateItemColor()
     {
-        StoreControlScript = GameObject.Find("StoreMain").GetComponent<StoreControl>();
-    }
-
-    public void UpdateItemColor(Color color)
-    {
-        itemColor = color;
+        icon.GetComponent<Image>().color = itemColor;
     }
 
 
@@ -60,32 +63,9 @@ public class Item : MonoBehaviour
         string tag = ItemPrefab.GetComponent<ClothesControl>().Tag;
         bool hasColorVariation =  ItemPrefab.GetComponent<ClothesControl>().hasColorVariation;
         
-        SwapClothingPiece(ItemPrefab, tag, itemColor, hasColorVariation);
+        
+        StoreControlScript.ChangeClothes(ItemPrefab, tag, itemColor, hasColorVariation);
     }
-
-    public void SwapClothingPiece(GameObject ItemPrefab, string TagName, Color color, bool colorVariation)
-   {
-
-        GameObject PlayerPart = GetPlayerPart(TagName);
-        GameObject oldClothing = GameObject.FindWithTag(TagName);
-        Destroy(oldClothing);
-
-        GameObject cloth = Instantiate(ItemPrefab,PlayerPart.transform.parent);
-
-        if(colorVariation == false || color == new Color(0,0,0,0))
-        {
-            cloth.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        else
-        {
-            cloth.GetComponent<SpriteRenderer>().color = color;
-        }
-
-        cloth.GetComponent<ClothesControl>().SpriteColor = cloth.GetComponent<SpriteRenderer>().color;
-        AnimControlScript.AnimtrChange(cloth);
-
-
-   }
 
    public GameObject GetPlayerPart(string TagName)
    {
@@ -96,9 +76,12 @@ public class Item : MonoBehaviour
    }
     
 
-    public void OnClickOnInventoryShop()
-    {
-        if(isItemOnShop == true)
+    public void OnClickIcon()
+    {   
+        IsShopOpen = StoreControlScript.ShopWindow.activeInHierarchy;
+
+        Debug.Log("clicked");
+        if(IsShopOpen == true)
         {
             ConfirmationWindow.GetComponent<ConfirmationWindowControl>().TextObj.text = "Sell?";
         }
@@ -112,15 +95,16 @@ public class Item : MonoBehaviour
 
     public void OnConfirm()
     {
-        if(isItemOnShop == true)
+        if(IsShopOpen == true)
         {
+            StoreControlScript.SellItem(this.gameObject, ItemPrefab, IsEquipped);
             Debug.Log("Selled");
             ConfirmationWindow.SetActive(false);
         }
         else 
         {   
             string tag = ItemPrefab.GetComponent<ClothesControl>().Tag;
-            SwapClothingPiece(ItemPrefab, tag, itemColor, true);
+            StoreControlScript.ChangeClothes(ItemPrefab, tag, itemColor, true);
             ConfirmationWindow.SetActive(false);
         }
     }
@@ -129,11 +113,5 @@ public class Item : MonoBehaviour
     {
         ConfirmationWindow.SetActive(false);
     }
-
-    public void OnClickOnInventory()
-    {
-
-    }
-    
     
 }

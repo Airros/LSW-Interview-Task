@@ -17,12 +17,10 @@ public class ColorSelectionButton : MonoBehaviour
 
     public void changeParentColor()
     {
-        GameObject parent = transform.parent.parent.gameObject;
-
         NewColor = this.GetComponent<Image>().color;
 
-        parent.GetComponent<Image>().color = NewColor;
-
         InventorySlot.GetComponent<ItemShop>().itemColor = NewColor;
+
+        InventorySlot.GetComponent<ItemShop>().UpdateItemColor();
     }
 }

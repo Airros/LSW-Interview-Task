@@ -67,9 +67,12 @@ public class PlayerAnimControl : MonoBehaviour
         
         foreach (Animator animtr in Animators)
         {
-            animtr.SetFloat("Horizontal",MovValue.x);
-            animtr.SetFloat("Vertical",MovValue.y);
-            animtr.SetFloat("Speed", MovValue.magnitude);
+            if(animtr != null)
+            {
+                animtr.SetFloat("Horizontal",MovValue.x);
+                animtr.SetFloat("Vertical",MovValue.y);
+                animtr.SetFloat("Speed", MovValue.magnitude);
+            }
         }
     }
 }

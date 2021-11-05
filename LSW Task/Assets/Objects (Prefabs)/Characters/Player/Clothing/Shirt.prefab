@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8209351833960721350}
+  - component: {fileID: -598678756549169766}
   - component: {fileID: 8209351833960721369}
   - component: {fileID: 8209351833960721368}
-  - component: {fileID: -598678756549169766}
   m_Layer: 0
   m_Name: Shirt
   m_TagString: UpperClothes
@@ -33,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-598678756549169766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8209351833960721351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf7e3713ab7b654094bced36c2c4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Basic Shirt
+  Price: 30
+  hasColorVariation: 1
+  SpriteColor: {r: 1, g: 1, b: 1, a: 1}
+  Icon: {fileID: -8273051096341355578, guid: 8fec34893d1571e4db7df69f095821da, type: 3}
+  Tag: UpperClothes
 --- !u!212 &8209351833960721369
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +92,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 5118828286480770848, guid: 8fec34893d1571e4db7df69f095821da, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,21 +121,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-598678756549169766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8209351833960721351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf7e3713ab7b654094bced36c2c4467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Basic Shirt
-  Price: 30
-  hasColorVariation: 1
-  SpriteColor: {r: 1, g: 1, b: 1, a: 1}
-  Icon: {fileID: -8273051096341355578, guid: 8fec34893d1571e4db7df69f095821da, type: 3}
-  Tag: UpperClothes

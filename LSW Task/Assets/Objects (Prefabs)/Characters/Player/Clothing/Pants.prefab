@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4692071610055808934}
+  - component: {fileID: 4729542683619456276}
   - component: {fileID: 4692071610055808935}
   - component: {fileID: 4692071610055808932}
-  - component: {fileID: 4729542683619456276}
   m_Layer: 0
   m_Name: Pants
   m_TagString: LowerClothes
@@ -33,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4729542683619456276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692071610055808985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf7e3713ab7b654094bced36c2c4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Simple Pants
+  Price: 70
+  hasColorVariation: 1
+  SpriteColor: {r: 0, g: 0, b: 0, a: 0}
+  Icon: {fileID: 3535924205912325147, guid: 90316220bdc8fcd42aaf24def13dbf8a, type: 3}
+  Tag: LowerClothes
 --- !u!212 &4692071610055808935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71,7 +89,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -576511669
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5748710191408837276, guid: 90316220bdc8fcd42aaf24def13dbf8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -103,22 +121,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4729542683619456276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692071610055808985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adf7e3713ab7b654094bced36c2c4467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Simple Pants
-  Price: 70
-  hasColorVariation: 1
-  SpriteColor: {r: 0, g: 0, b: 0, a: 0}
-  Icon: {fileID: 3535924205912325147, guid: 90316220bdc8fcd42aaf24def13dbf8a, type: 3}
-  Tag: LowerClothes
-  Player: {fileID: 0}

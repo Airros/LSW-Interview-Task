@@ -24,9 +24,6 @@ public class ItemShop : Item
          UpdateIcon();
          UpdatePrice();
          SetStoreControlScript();
-
-         isItemOnShop = true;
-
     }
 
 }
